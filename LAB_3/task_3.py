@@ -66,7 +66,6 @@ plt.title('Training and validation accuracy')
 plt.plot(epochs, acc, 'red', label='Training acc')
 plt.plot(epochs, val_acc, 'blue', label='Validation acc')
 plt.legend()
-
 plt.figure()
 plt.title('Training and validation loss')
 plt.plot(epochs, loss, 'red', label='Training loss')

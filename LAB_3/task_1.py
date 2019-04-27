@@ -28,22 +28,17 @@ model = Sequential()
 model.add(Embedding(10000,16))
 model.add(keras.layers.GlobalAveragePooling1D())
 model.add(keras.layers.Dense(16,activation='relu'))
-model.add(keras.layers.Dense(1,activation= 'relu'))
-# model.add(Conv1D(filters=32,kernel_size= 3, padding='same',activation='relu'))
-# model.add(MaxPooling1D(pool_size=2))
-# model.add(Flatten())
-# model.add(Dense(250,input_dim = 3,activation='relu'))
-# model.add(Dense(1,activation='sigmoid'))
+model.add(keras.layers.Dense(1,activation= 'sigmoid'))
 
 #tbCallBack= keras.callbacks.TensorBoard(log_dir='./Graph', write_images=True)
 tensorboard = TensorBoard(log_dir="logs/{}",histogram_freq= 0,write_graph=True, write_images=True)
 
 model.compile(loss= keras.losses.binary_crossentropy,
-              optimizer=keras.optimizers.adam(),
+              optimizer=keras.optimizers.adam(lr = 0.1),
               metrics=['accuracy'])
 
 #fit the model
-history = model.fit(x_train, y_train,batch_size=1024,epochs=30,verbose=1,
+history = model.fit(x_train, y_train,batch_size=1024,epochs=20,verbose=1,
           validation_data=(x_test, y_test), callbacks=[tensorboard])
 
 plt.plot(history.history['loss'])
