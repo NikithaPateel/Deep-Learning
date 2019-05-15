@@ -1,0 +1,17 @@
+.image{
+    background: url("image.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.head{
+    font-family: inherit;
+    font-weight:bold;
+    margin-left: 250px;
+    font-size: 50px;
+  align-content: center;
+}
+
+.content{
+    margin-left: 20px;
+    height: max-content;
+}
